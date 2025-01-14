@@ -1,5 +1,14 @@
+@import 'colors';
+
 *{
     padding: 0;
     margin: 0;
     font-weight: 600;
+}
+
+:root{
+    font-synthesis: none;
+    color: $text-primary;
+    text-rendering: optimizeLegibility;
+    background-color: $bg-color ;
 }
