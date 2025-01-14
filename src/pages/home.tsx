@@ -1,10 +1,10 @@
-import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { SortBy, SortOrder, useGetTasksQuery } from "../store/api/taskApi";
 import { TaskList } from "../components/task/taskList";
 import Styles from "@/styles/home.module.scss";
 import { TaskI } from "../types/task";
-import clsx from "clsx";
 import { ClipLoader } from "react-spinners";
+import { SelectButton } from "../components/ui/selectButton";
 
 interface Sort {
   value: SortBy;
@@ -294,23 +294,6 @@ export const HomePage: FC = () => {
 
       <div ref={observerRef}></div>
     </div>
-  );
-};
-
-// Компонент для отображения кнопки фильтра/сортировки
-const SelectButton: FC<{
-  active: boolean;
-  children: ReactNode;
-  onClick: () => void;
-}> = ({ active, children, onClick }) => {
-  return (
-    <a
-      className={clsx(Styles.selectButton, active && Styles.selectButtonActive)}
-      onClick={() => onClick()}
-      href="#"
-    >
-      {children}
-    </a>
   );
 };
 

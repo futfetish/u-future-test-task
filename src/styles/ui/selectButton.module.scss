@@ -1,0 +1,13 @@
+.selectButton{
+    padding: 4px 8px;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    &:hover{
+        background: rgba(255, 255, 255, 0.05);
+    }
+}
+
+.selectButtonActive{
+    background: rgba(255, 255, 255, 0.2) !important ;
+}
