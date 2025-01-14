@@ -37,7 +37,7 @@ export const taskApi = createApi({
         return query;
       },
     }),
-    createTask: builder.mutation<TaskI, Omit<TaskI, "id">>({
+    createTask: builder.mutation<TaskI, Omit<TaskI, "id" | "completed">>({
       query: (newTask) => ({
         url: "tasks",
         method: "POST",
