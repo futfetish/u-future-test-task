@@ -41,7 +41,7 @@ const SortSettings: FC<{
           <div className={Styles.sortSelectButton}>
             <div>{sort.title}</div>
             <div>
-              {sortOrder === "asc" && sort.value == sortBy ? (
+              {sortOrder === "desc" && sort.value == sortBy ? (
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ const SortSettings: FC<{
                   >
                     <path
                       fill-rule="evenodd"
-                      d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"
+                      d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
                     />
                   </svg>
                 </div>
@@ -67,7 +67,7 @@ const SortSettings: FC<{
                   >
                     <path
                       fill-rule="evenodd"
-                      d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                      d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"
                     />
                   </svg>
                 </div>
@@ -189,8 +189,12 @@ export const Home: FC = () => {
   const [page, setPage] = useState(1);
   const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
   const [sortBy, setSortBy] = useState<SortBy>("id");
-  const [completedFilter, setCompletedFilter] = useState<TaskI["completed"] | undefined>(undefined);
-  const [priorityFilter, setPriorityFilter] = useState<TaskI["priority"] | undefined>(undefined);
+  const [completedFilter, setCompletedFilter] = useState<
+    TaskI["completed"] | undefined
+  >(undefined);
+  const [priorityFilter, setPriorityFilter] = useState<
+    TaskI["priority"] | undefined
+  >(undefined);
 
   const toggleSortOrder = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
