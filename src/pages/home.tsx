@@ -125,7 +125,7 @@ const PriorityFilterSettings: FC<{
 );
 
 // Главный компонент Home
-export const Home: FC = () => {
+export const HomePage: FC = () => {
   // Список для сортировки задач
   const sortList: Sort[] = [
     {
