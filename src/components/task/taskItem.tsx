@@ -1,9 +1,9 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { TaskI } from "../../types/task";
 import Styles from "@/styles/task/taskItem.module.scss";
 import clsx from "clsx";
 
-export const TaskItem: FC<{ task: TaskI }> = ({ task }) => {
+export const TaskItem: FC<{ task: TaskI }> = React.memo(({ task }) => {
   return (
     <div className={Styles.item}>
       <div className={Styles.top} >
@@ -22,4 +22,4 @@ export const TaskItem: FC<{ task: TaskI }> = ({ task }) => {
       <div className={Styles.description} > {task.description} </div>
     </div>
   );
-};
+});
