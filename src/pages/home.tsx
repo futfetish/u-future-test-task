@@ -21,6 +21,110 @@ interface PriorityFilterList {
   title: string;
 }
 
+// Компонент сортировки
+const SortSettings: FC<{
+  sortList: { value: SortBy; title: string }[];
+  sortBy: SortBy;
+  sortOrder: SortOrder;
+  setSort: (sort: SortBy) => void;
+  toggleSortOrder: () => void;
+}> = ({ sortList, sortBy, sortOrder, setSort }) => (
+  <div>
+    <h3>сортировка</h3>
+    <div className={Styles.selectList}>
+      {sortList.map((sort) => (
+        <SelectButton
+          key={sort.title}
+          active={sort.value == sortBy}
+          onClick={() => setSort(sort.value)}
+        >
+          <div className={Styles.sortSelectButton}>
+            <div>{sort.title}</div>
+            <div>
+              {sortOrder === "asc" && sort.value == sortBy ? (
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"
+                    />
+                  </svg>
+                </div>
+              ) : (
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                    />
+                  </svg>
+                </div>
+              )}
+            </div>
+          </div>
+        </SelectButton>
+      ))}
+    </div>
+  </div>
+);
+
+// Компонент фильтра по выполненности
+const CompletedFilterSettings: FC<{
+  completedFilterList: { value?: TaskI["completed"]; title: string }[];
+  completedFilter: TaskI["completed"] | undefined;
+  setCompletedFilter: (value: TaskI["completed"] | undefined) => void;
+}> = ({ completedFilterList, completedFilter, setCompletedFilter }) => (
+  <div>
+    <h4> Выполненность </h4>
+    <div className={Styles.selectList}>
+      {completedFilterList.map((filter) => (
+        <SelectButton
+          key={filter.title}
+          active={filter.value == completedFilter}
+          onClick={() => setCompletedFilter(filter.value)}
+        >
+          {filter.title}
+        </SelectButton>
+      ))}
+    </div>
+  </div>
+);
+
+// Компонент фильтра по приоритету
+const PriorityFilterSettings: FC<{
+  priorityFilterList: { value?: TaskI["priority"]; title: string }[];
+  priorityFilter: TaskI["priority"] | undefined;
+  setPriorityFilter: (value: TaskI["priority"] | undefined) => void;
+}> = ({ priorityFilterList, priorityFilter, setPriorityFilter }) => (
+  <div>
+    <h4> Приоритет </h4>
+    <div className={Styles.selectList}>
+      {priorityFilterList.map((filter) => (
+        <SelectButton
+          key={filter.value}
+          active={filter.value == priorityFilter}
+          onClick={() => setPriorityFilter(filter.value)}
+        >
+          {filter.title}
+        </SelectButton>
+      ))}
+    </div>
+  </div>
+);
+
+// Главный компонент Home
 export const Home: FC = () => {
   // Список для сортировки задач
   const sortList: Sort[] = [
@@ -81,28 +185,17 @@ export const Home: FC = () => {
       value: "low",
     },
   ];
-
   // Состояния для страницы, сортировки, фильтров
   const [page, setPage] = useState(1);
   const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
   const [sortBy, setSortBy] = useState<SortBy>("id");
-  const [completedFilter, setCompletedFilter] = useState<
-    TaskI["completed"] | undefined
-  >(undefined);
-  const [priorityFilter, setPriorityFilter] = useState<
-    TaskI["priority"] | undefined
-  >(undefined);
+  const [completedFilter, setCompletedFilter] = useState<TaskI["completed"] | undefined>(undefined);
+  const [priorityFilter, setPriorityFilter] = useState<TaskI["priority"] | undefined>(undefined);
 
-  // Функция для переключения порядка сортировки
   const toggleSortOrder = () => {
-    if (sortOrder == "asc") {
-      setSortOrder("desc");
-    } else {
-      setSortOrder("asc");
-    }
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
-  // Функция для установки сортировки (с учетом смены порядка)
   const setSort = (sort: SortBy) => {
     if (sort === sortBy) {
       toggleSortOrder();
@@ -112,7 +205,6 @@ export const Home: FC = () => {
     }
   };
 
-  // Запрос для получения задач с учетом фильтров и сортировки
   const { data, isLoading, isFetching, isError } = useGetTasksQuery({
     page,
     sortBy,
@@ -120,17 +212,13 @@ export const Home: FC = () => {
     priority: priorityFilter,
   });
 
-  // Сортируем задачи, если необходимо (переворачиваем их при "desc")
   let tasks = data?.data;
-
-  if (tasks && sortOrder == "desc") {
+  if (tasks && sortOrder === "desc") {
     tasks = [...tasks].reverse();
   }
 
-  // Проверка на наличие следующих задач для загрузки
   const hasMore = data?.next !== null;
 
-  // Функция для загрузки следующей страницы с задачами
   const loadMore = useCallback(() => {
     if (!isFetching && hasMore) {
       setPage((prev) => prev + 1);
@@ -138,31 +226,29 @@ export const Home: FC = () => {
     }
   }, [hasMore, isFetching]);
 
-  // Ссылка для отслеживания нажатия на элемент для подгрузки данных
   const observerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          loadMore(); // Загружаем следующую страницу данных
+          loadMore();
         }
       },
       { threshold: 1.0 }
     );
 
     if (observerRef.current) {
-      observer.observe(observerRef.current); // Наблюдаем за элементом для подгрузки
+      observer.observe(observerRef.current);
     }
 
     return () => {
       if (observerRef.current) {
-        observer.disconnect(); // Отключаем наблюдатель при размонтировании компонента
+        observer.disconnect();
       }
     };
   }, [observerRef, hasMore, data, loadMore]);
 
-  // Отображение ошибки при неудачном запросе
   if (isError) return <div>Error</div>;
 
   return (
@@ -170,100 +256,28 @@ export const Home: FC = () => {
       <div className={Styles.settings}>
         <div>
           <h3>фильтр</h3>
-          <div>
-            <h4> Выполненность </h4>
-            <div className={Styles.selectList}>
-              {completedFilterList.map((filter) => (
-                <SelectButton
-                  key={filter.title}
-                  active={filter.value == completedFilter}
-                  onClick={() => setCompletedFilter(filter.value)}
-                >
-                  {filter.title}
-                </SelectButton>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h4> Приоритет </h4>
-            <div className={Styles.selectList}>
-              {priorityFilterList.map((filter) => (
-                <SelectButton
-                  key={filter.value}
-                  active={filter.value == priorityFilter}
-                  onClick={() => setPriorityFilter(filter.value)}
-                >
-                  {filter.title}
-                </SelectButton>
-              ))}
-            </div>
-          </div>
+          <CompletedFilterSettings
+            completedFilterList={completedFilterList}
+            completedFilter={completedFilter}
+            setCompletedFilter={setCompletedFilter}
+          />
+          <PriorityFilterSettings
+            priorityFilterList={priorityFilterList}
+            priorityFilter={priorityFilter}
+            setPriorityFilter={setPriorityFilter}
+          />
         </div>
-        <div>
-          <h3>сортировка</h3>
-
-          <div className={Styles.selectList}>
-            {sortList.map((sort) => (
-              <SelectButton
-                key={sort.title}
-                active={sort.value == sortBy}
-                onClick={() => setSort(sort.value)}
-              >
-                <div className={Styles.sortSelectButton}>
-                  <div>{sort.title}</div>
-                  <div>
-                    {sortOrder === "asc" && sort.value == sortBy ? (
-                      <div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"
-                          />
-                        </svg>
-                      </div>
-                    ) : (
-                      <div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-                          />
-                        </svg>{" "}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </SelectButton>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className={Styles.pageCount}>
-        <a href="#" onClick={() => setPage((page) => page - 1)}>
-          {"<"}
-        </a>
-        <input
-          className={Styles.count}
-          value={page}
-          type="number"
-          onChange={(e) => setPage(parseInt(e.currentTarget.value, 10))}
+        <SortSettings
+          sortList={sortList}
+          sortBy={sortBy}
+          sortOrder={sortOrder}
+          setSort={setSort}
+          toggleSortOrder={toggleSortOrder}
         />
-        <a href="#" onClick={() => setPage((page) => page + 1)}>
-          {">"}
-        </a>
       </div>
+
+      <Pagination page={page} setPage={setPage} />
+
       {isLoading || isFetching ? (
         <div className={Styles.spinerWrapper}>
           <ClipLoader color="#ffa116" size={100} />
@@ -293,5 +307,28 @@ const SelectButton: FC<{
     >
       {children}
     </a>
+  );
+};
+
+// Компонент для пагинации
+const Pagination: FC<{ page: number; setPage: (page: number) => void }> = ({
+  page,
+  setPage,
+}) => {
+  return (
+    <div className={Styles.pageCount}>
+      <a href="#" onClick={() => setPage(page - 1)}>
+        {"<"}
+      </a>
+      <input
+        className={Styles.count}
+        value={page}
+        type="number"
+        onChange={(e) => setPage(parseInt(e.currentTarget.value, 10))}
+      />
+      <a href="#" onClick={() => setPage(page + 1)}>
+        {">"}
+      </a>
+    </div>
   );
 };
