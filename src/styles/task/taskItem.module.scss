@@ -7,28 +7,48 @@
 
   background: $primary-color;
   border-radius: 12px;
-  .top{
+  .top {
     width: 100%;
     padding: 8px;
-    justify-content: space-between;
     align-items: center;
     display: flex;
-    .thing{
+    gap: 12px;
+    .info {
+      flex-grow: 1;
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      .thing {
         display: flex;
         align-items: center;
         gap: 4px;
+      } 
+      .check {
+      width: 16px;
+      height: 16px;
+      border: 1px $text-primary solid;
+      border-radius: 4px;
     }
-    .check{
-        width: 16px;
-        height: 16px;
-        border: 1px  $text-primary solid;
-        border-radius: 4px;
+    .check_active {
+      background-color: $secondary-color;
     }
-    .check_active{
-        background-color: $secondary-color;
     }
+
+    .delete{
+      text-decoration: none;
+      background-color: red;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 16px;
+      width: 16px;
+      border-radius: 4px;
+    }
+
+   
   }
-  .description{
+  .description {
     padding: 8px;
     width: 100%;
     vertical-align: baseline;
