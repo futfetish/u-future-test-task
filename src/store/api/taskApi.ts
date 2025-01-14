@@ -1,23 +1,33 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { TaskI } from "../../types/task";
 
 // Определение интерфейсов для задачи
-interface Task {
-  id: number;
-  title: string;
-  description: string;
-  priority: "High" | "Medium" | "Low" | "None";
-  completed: boolean;
-}
+
 
 export const taskApi = createApi({
   reducerPath: "taskApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/" }), // URL json-server
   endpoints: (builder) => ({
-    getTasks: builder.query<Task[], number>({
-      query: (page: number) => `tasks?_page=${page}&_limit=10`,
-    }),
+    getTasks: builder.query<
+      TaskI[],
+      { page: number; completed?: boolean; priority?: TaskI['priority'] }
+    >({
+      query: ({ page, completed, priority }) => {
+        let query = `tasks?_page=${page}&_limit=10`;
 
-    createTask: builder.mutation<Task, Omit<Task, "id">>({
+        if (completed !== undefined) {
+          query += `&completed=${completed}`;
+        }
+
+
+        if (priority !== undefined) {
+          query += `&priority=${priority}`;
+        }
+
+        return query;
+      },
+    }),
+    createTask: builder.mutation<TaskI, Omit<TaskI, "id">>({
       query: (newTask) => ({
         url: "tasks",
         method: "POST",
@@ -25,7 +35,7 @@ export const taskApi = createApi({
       }),
     }),
 
-    updateTask: builder.mutation<Task, Task>({
+    updateTask: builder.mutation<TaskI, TaskI>({
       query: (updatedTask) => ({
         url: `tasks/${updatedTask.id}`,
         method: "PUT",
