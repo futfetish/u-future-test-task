@@ -9,11 +9,11 @@ export const taskApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/" }), // URL json-server
   endpoints: (builder) => ({
     getTasks: builder.query<
-      TaskI[],
+      {data : TaskI[], next: number | null},
       { page: number; completed?: boolean; priority?: TaskI['priority'] }
     >({
       query: ({ page, completed, priority }) => {
-        let query = `tasks?_page=${page}&_limit=10`;
+        let query = `tasks?_page=${page}_limit=10`;
 
         if (completed !== undefined) {
           query += `&completed=${completed}`;
