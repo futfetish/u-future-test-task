@@ -1,142 +1,144 @@
 {
-    "tasks": [
-      {
-        "id": 1,
-        "title": "Задача 1",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true,
-        "priority": "high"
-      },
-      {
-        "id": 2,
-        "title": "Задача 2",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true,
-        "priority": "low"
-      },
-      {
-        "id": 3,
-        "title": "Задача 3",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": false,
-        "priority": "medium"
-      },
-      {
-        "id": 4,
-        "title": "Задача 4",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true
-      },
-      {
-        "id": 5,
-        "title": "Задача 5",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": false,
-        "priority": "high"
-      },
-      {
-        "id": 6,
-        "title": "Задача 6",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true,
-        "priority": "medium"
-      },
-      {
-        "id": 7,
-        "title": "Задача 7",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": false
-      },
-      {
-        "id": 8,
-        "title": "Задача 8",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true
-      },
-      {
-        "id": 9,
-        "title": "Задача 9",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": false,
-        "priority": "medium"
-      },
-      {
-        "id": 10,
-        "title": "Задача 10",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true,
-        "priority": "low"
-      },
-      {
-        "id": 11,
-        "title": "Задача 11",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": false,
-        "priority": "high"
-      },
-      {
-        "id": 12,
-        "title": "Задача 12",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true,
-        "priority": "medium"
-      },
-      {
-        "id": 13,
-        "title": "Задача 13",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": false,
-        "priority": "low"
-      },
-      {
-        "id": 14,
-        "title": "Задача 14",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true,
-        "priority": "high"
-      },
-      {
-        "id": 15,
-        "title": "Задача 15",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true,
-        "priority": "low"
-      },
-      {
-        "id": 16,
-        "title": "Задача 16",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": false,
-        "priority": "medium"
-      },
-      {
-        "id": 17,
-        "title": "Задача 17",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": false,
-        "priority": "high"
-      },
-      {
-        "id": 18,
-        "title": "Задача 18",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true,
-        "priority": "medium"
-      },
-      {
-        "id": 19,
-        "title": "Задача 19",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": false,
-        "priority": "low"
-      },
-      {
-        "id": 20,
-        "title": "Задача 20",
-        "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "completed": true,
-        "priority": "high"
-      }
-    ]
-  }
-  
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Задача 1",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "high"
+    },
+    {
+      "id": 2,
+      "title": "Задача 2",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "low"
+    },
+    {
+      "id": 3,
+      "title": "Задача 3",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": false,
+      "priority": "medium"
+    },
+    {
+      "id": 4,
+      "title": "Задача 4",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "None"
+    },
+    {
+      "id": 5,
+      "title": "Задача 5",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": false,
+      "priority": "high"
+    },
+    {
+      "id": 6,
+      "title": "Задача 6",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "medium"
+    },
+    {
+      "id": 7,
+      "title": "Задача 7",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": false,
+      "priority": "None"
+    },
+    {
+      "id": 8,
+      "title": "Задача 8",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "None"
+    },
+    {
+      "id": 9,
+      "title": "Задача 9",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": false,
+      "priority": "medium"
+    },
+    {
+      "id": 10,
+      "title": "Задача 10",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "low"
+    },
+    {
+      "id": 11,
+      "title": "Задача 11",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": false,
+      "priority": "high"
+    },
+    {
+      "id": 12,
+      "title": "Задача 12",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "medium"
+    },
+    {
+      "id": 13,
+      "title": "Задача 13",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": false,
+      "priority": "low"
+    },
+    {
+      "id": 14,
+      "title": "Задача 14",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "high"
+    },
+    {
+      "id": 15,
+      "title": "Задача 15",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "low"
+    },
+    {
+      "id": 16,
+      "title": "Задача 16",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": false,
+      "priority": "medium"
+    },
+    {
+      "id": 17,
+      "title": "Задача 17",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": false,
+      "priority": "high"
+    },
+    {
+      "id": 18,
+      "title": "Задача 18",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "medium"
+    },
+    {
+      "id": 19,
+      "title": "Задача 19",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": false,
+      "priority": "low"
+    },
+    {
+      "id": 20,
+      "title": "Задача 20",
+      "description": "ОLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "completed": true,
+      "priority": "high"
+    }
+  ]
+}
