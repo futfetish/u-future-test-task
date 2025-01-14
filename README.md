@@ -1,50 +1,24 @@
-# React + TypeScript + Vite
+# Менеджер задач
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это тестовое задание для разработки приложения "Менеджер задач" с использованием React, TypeScript и RTK Query. Приложение позволяет управлять задачами: добавлять, редактировать, удалять, фильтровать и сортировать задачи. Все данные хранятся на фейковом API, созданном с помощью json-server.
 
-Currently, two official plugins are available:
+[полное ТЗ](https://docs.google.com/document/d/1q8Gs2Xw8OFLlQcSq2EQ_gJeQ1FIvF40Fp1p3pR07fXY/edit?tab=t.0#heading=h.d69y2f7jg9tn)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Описание проекта
 
-## Expanding the ESLint configuration
+Приложение "Менеджер задач" предназначено для упрощения работы с задачами. Оно позволяет пользователю:
+- Добавлять, редактировать и удалять задачи.
+- Фильтровать задачи по статусу (выполнено/не выполнено) и приоритету (высокий, средний, низкий).
+- Сортировать задачи по названию, статусу, приоритету и дате.
+- Просматривать задачи постранично с динамической пагинацией.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Для хранения и манипуляции данными используется RTK Query, что позволяет легко интегрировать запросы к фейковому серверу и эффективно кэшировать данные.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Технологии
+- React — библиотека для создания пользовательских интерфейсов.
+- TypeScript — статическая типизация для JavaScript.
+- RTK Query — средство для упрощения работы с сервером.
+- json-server — создание фейкового API для тестирования.
+- React Hook Form — библиотека для удобной работы с формами и валидацией.
+- CSS Modules и SASS — для стилизации компонентов.
+- Vite — сборщик и инструмент для разработки.
