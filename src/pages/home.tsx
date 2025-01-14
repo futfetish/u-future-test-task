@@ -196,6 +196,8 @@ export const HomePage: FC = () => {
     TaskI["priority"] | undefined
   >(undefined);
 
+  const [last, setLast] = useState<number | null>(null);
+
   const toggleSortOrder = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
@@ -210,7 +212,7 @@ export const HomePage: FC = () => {
   };
 
   const { data, isLoading, isFetching, isError } = useGetTasksQuery({
-    page,
+    page : sortOrder === 'asc' || last == null ? page : last - page + 1, // костыль так как в jsonserver нет sort order
     sortBy,
     completed: completedFilter,
     priority: priorityFilter,
@@ -220,6 +222,12 @@ export const HomePage: FC = () => {
   if (tasks && sortOrder === "desc") {
     tasks = [...tasks].reverse();
   }
+
+  useEffect(() => {
+    if (data?.last) {
+      setLast(data?.last);
+    }
+  }, [data?.last]);
 
   const hasMore = data?.next !== null;
 
