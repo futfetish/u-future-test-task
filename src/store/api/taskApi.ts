@@ -17,12 +17,7 @@ export const taskApi = createApi({
         sortBy?: SortBy;
       }
     >({
-      query: ({
-        page,
-        completed,
-        priority,
-        sortBy = "id",
-      }) => {
+      query: ({ page, completed, priority, sortBy = "id" }) => {
         let query = `tasks?_page=${page}_limit=10`;
 
         if (completed !== undefined) {
@@ -37,6 +32,11 @@ export const taskApi = createApi({
         return query;
       },
     }),
+
+    getTaskById: builder.query<TaskI, undefined>({
+      query: (id) => `tasks/${id}`,
+    }),
+
     createTask: builder.mutation<TaskI, Omit<TaskI, "id" | "completed">>({
       query: (newTask) => ({
         url: "tasks",
@@ -67,4 +67,5 @@ export const {
   useCreateTaskMutation,
   useUpdateTaskMutation,
   useDeleteTaskMutation,
+  useGetTaskByIdQuery,
 } = taskApi;

@@ -1,0 +1,66 @@
+@import 'colors';
+
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    
+        .block {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+        }
+    
+        .priorityList{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+      }
+}
+
+.spinerWrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 100px;
+}
+
+input,
+  textarea,
+  select {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border: 1px solid #ccc;
+    &:focus-visible {
+      outline: none;
+    }
+    border-radius: 8px;
+    border: none;
+    padding: 8px;
+  }
+
+  button {
+    padding: 10px;
+    background: $secondary-color;
+    color: white;
+    border: none;
+    border-radius: 8px;
+  }
+
+
+  .error {
+    color: red;
+    font-size: 0.875rem;
+  }
+

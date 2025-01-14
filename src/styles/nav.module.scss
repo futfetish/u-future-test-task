@@ -1,0 +1,29 @@
+@import "colors";
+
+.nav {
+  border-bottom: 2px solid $secondary-color;
+  .content {
+    padding: 0px 8px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    height: 100%;
+    .link {
+        height: 60px;
+        text-decoration: none;
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        &:hover{
+            background: rgba(255, 255, 255, 0.05);
+        }
+    }
+    .activeLink{
+        background: rgba(255, 255, 255, 0.2) !important ;
+    }
+  }
+}
