@@ -1,0 +1,40 @@
+@import "../colors";
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  background: $primary-color;
+  border-radius: 12px;
+  .top{
+    width: 100%;
+    padding: 8px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    .thing{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .check{
+        width: 16px;
+        height: 16px;
+        border: 1px  $text-primary solid;
+        border-radius: 4px;
+    }
+    .check_active{
+        background-color: $secondary-color;
+    }
+  }
+  .description{
+    padding: 8px;
+    width: 100%;
+    vertical-align: baseline;
+    text-align: left;
+    overflow-wrap: break-word;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

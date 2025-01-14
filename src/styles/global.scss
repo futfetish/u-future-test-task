@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     font-weight: 600;
+    box-sizing: border-box; 
 }
 
 :root{
@@ -11,4 +12,10 @@
     color: $text-primary;
     text-rendering: optimizeLegibility;
     background-color: $bg-color ;
+}
+
+.stick{
+    width: 100%;
+    background-color: white;
+    height: 1px;
 }
