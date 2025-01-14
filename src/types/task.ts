@@ -2,6 +2,6 @@ export interface TaskI {
     id: number;
     title: string;
     description: string;
-    priority: "High" | "Medium" | "Low" | 'None';
+    priority: "high" | "medium" | "low" | 'none';
     completed: boolean;
   }
