@@ -212,7 +212,7 @@ export const HomePage: FC = () => {
   };
 
   const { data, isLoading, isFetching, isError } = useGetTasksQuery({
-    page : sortOrder === 'asc' || last == null ? page : last - page + 1, // костыль так как в jsonserver нет sort order
+    page: sortOrder === "asc" || last == null ? page : last - page + 1, // костыль так как в jsonserver нет sort order
     sortBy,
     completed: completedFilter,
     priority: priorityFilter,
@@ -229,7 +229,7 @@ export const HomePage: FC = () => {
     }
   }, [data?.last]);
 
-  const hasMore = data?.next !== null;
+  const hasMore = !(data?.next == null || (tasks && tasks.length == 0) || page > data.last);
 
   const loadMore = useCallback(() => {
     if (!isFetching && hasMore) {
